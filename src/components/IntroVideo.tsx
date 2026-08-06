@@ -32,15 +32,14 @@ export const IntroVideo: React.FC<IntroVideoProps> = ({ onComplete }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0, transition: { duration: 1 } }}
-            className="absolute inset-0 flex items-center justify-center bg-[#111111] z-10"
+            className="absolute inset-0 flex items-center justify-center bg-[#FDFBF7] z-10"
           >
             <div className="absolute inset-0 w-full h-full">
               <img 
                 src="/ChatGPT Image Aug 6, 2026, 05_51_32 PM.png" 
                 alt="Intro Background" 
-                className="w-full h-full object-cover opacity-90"
+                className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/20" />
             </div>
             <div className="absolute inset-0 pointer-events-none opacity-20" style={{ background: "radial-gradient(circle at center, #A68846 0%, transparent 70%)" }} />
             <div className="relative z-10 text-center flex flex-col items-center">
