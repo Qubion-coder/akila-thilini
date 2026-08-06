@@ -89,7 +89,7 @@ function LandingPage() {
       </video>
 
       <FloatingPetals />
-      
+
       {/* Background Music */}
       <audio
         ref={audioRef}
