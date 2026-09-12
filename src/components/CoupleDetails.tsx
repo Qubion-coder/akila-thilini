@@ -21,7 +21,7 @@ export const CoupleDetails: React.FC = () => {
             <div className="w-12 sm:w-20 h-[1px] bg-gradient-to-l from-transparent to-brand-primary/60" />
           </div>
           <h2 className="text-5xl sm:text-7xl font-display text-stone-800 tracking-tight drop-shadow-sm">
-            Dasni <span className="italic text-brand-primary font-bold mx-2">&</span> Tharaka
+            Akila <span className="italic text-brand-primary font-bold mx-2">&</span> Thilini
           </h2>
         </motion.div>
       </div>
@@ -37,8 +37,8 @@ export const CoupleDetails: React.FC = () => {
         >
           <div className="mb-4 flex flex-col items-center lg:items-end">
             <span className="text-brand-primary uppercase tracking-[0.4em] text-[10px] font-bold mb-3 block">The Groom</span>
-            <h3 className="text-4xl sm:text-5xl font-display text-stone-800 mb-2 drop-shadow-sm">Tharaka</h3>
-            <p className="text-stone-500/90 font-serif italic text-base sm:text-lg">Son of Mr. Senaka and Mrs. Chandrika</p>
+            <h3 className="text-4xl sm:text-5xl font-display text-stone-800 mb-2 drop-shadow-sm">Akila</h3>
+            <p className="text-stone-500/90 font-serif italic text-base sm:text-lg">Son of Mr. &amp; Mrs. K. Shantha</p>
           </div>
           <div className="hidden lg:flex justify-end mt-8">
             <Heart className="w-6 h-6 text-brand-pink/80 fill-brand-pink/30 transform hover:scale-110 transition-transform cursor-pointer drop-shadow-sm" />
@@ -87,8 +87,8 @@ export const CoupleDetails: React.FC = () => {
         >
           <div className="mb-4 flex flex-col items-center lg:items-start">
             <span className="text-brand-primary uppercase tracking-[0.4em] text-[10px] font-bold mb-3 block">The Bride</span>
-            <h3 className="text-4xl sm:text-5xl font-display text-stone-800 mb-2 drop-shadow-sm">Dasni</h3>
-            <p className="text-stone-500/90 font-serif italic text-base sm:text-lg">Daughter of Mr. Nimal and Mrs. Kanthi</p>
+            <h3 className="text-4xl sm:text-5xl font-display text-stone-800 mb-2 drop-shadow-sm">Thilini</h3>
+            <p className="text-stone-500/90 font-serif italic text-base sm:text-lg">Daughter of Mr. &amp; Mrs. Abeywickrama</p>
           </div>
           <div className="hidden lg:flex justify-start mt-8">
             <Heart className="w-6 h-6 text-brand-pink/80 fill-brand-pink/30 transform hover:scale-110 transition-transform cursor-pointer drop-shadow-sm" />

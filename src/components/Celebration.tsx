@@ -40,12 +40,12 @@ export const Celebration: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="space-y-4 text-sm sm:text-base font-bold leading-relaxed font-sans uppercase tracking-wider flex flex-col items-center" style={{ color: "#91763A", textShadow: "0 0 20px rgba(255,255,255,1), 0 0 10px rgba(255,255,255,0.9)" }}>
-              <p>Tuesday, 5th of January 2027</p>
-              <p>8.30 am onwards</p>
-              <p>The Grand Ballroom Hilton Colombo</p>
-              <p className="text-xs opacity-90 mb-4" style={{ textTransform: 'none', letterSpacing: 'normal', fontStyle: 'italic' }}>(Poruwa Ceremony at 9.00 AM)</p>
+              <p>Thursday, 15th of October 2026</p>
+              <p>10.00 AM to 04.00 PM</p>
+              <p>Ramrich Hotel, Ja - Ela</p>
+              <p className="text-xs opacity-90 mb-4" style={{ textTransform: 'none', letterSpacing: 'normal', fontStyle: 'italic' }}>(Poruwa Ceremony at 10.08 AM)</p>
               <a 
-                href="https://www.google.com/maps/search/Hilton+Colombo" 
+                href="https://www.google.com/maps/search/?api=1&query=Ramrich+Hotel+Ja-Ela" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="inline-block mt-6 px-8 py-3 border border-[#B8942A]/50 bg-white/95 text-[#91763A] rounded-full text-xs font-extrabold hover:bg-white hover:scale-105 transition-all shadow-[0_4px_15px_rgba(0,0,0,0.1)] uppercase tracking-[0.2em]"

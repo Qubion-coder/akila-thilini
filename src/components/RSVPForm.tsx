@@ -81,10 +81,9 @@ export const RSVPForm: React.FC = () => {
             <div className="h-px w-16 mx-auto bg-[#B8942A] shadow-[0_0_10px_rgba(255,255,255,1)]" />
           </div>
           <p className="font-sans text-sm font-bold leading-relaxed mb-10 sm:mb-12 mx-auto max-w-md text-[#91763A] uppercase tracking-widest" style={{ textShadow: "0 0 15px rgba(255,255,255,1), 0 0 8px rgba(255,255,255,0.9)" }}>
-            KINDLY RSVP (REGRETS ONLY) BY 15TH OF DECEMBER 2026
+            KINDLY RSVP BY 1ST OF OCTOBER 2026
             <br/><br/>
-            <span className="text-[#91763A] font-extrabold">+94 711840117</span> (PRADEEP PATHIRANA)<br/>
-            <span className="text-[#91763A] font-extrabold">+94 777391367</span> (KAPILA HERATH)
+            <a href="tel:0778982126" className="hover:underline"><span className="text-[#91763A] font-extrabold">0778982126</span></a> / <a href="tel:0717763670" className="hover:underline"><span className="text-[#91763A] font-extrabold">0717763670</span></a>
           </p>
           <div>
             {submitted ? (

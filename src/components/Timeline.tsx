@@ -1,15 +1,11 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Heart, Music, Utensils, PartyPopper, Camera, Car, Pen } from 'lucide-react';
+import { Heart, Camera, Car } from 'lucide-react';
 
 const events = [
-  { time: '08:30 AM', title: 'Arrival of guests', icon: Heart },
-  { time: '09:00 AM', title: 'Poruwa ceremony', icon: Camera },
-  { time: '10:00 AM', title: 'Shshreeka table', icon: PartyPopper },
-  { time: '10:30 AM', title: 'Registration', icon: Pen },
-  { time: '12:30 PM', title: 'Lunch', icon: Utensils },
-  { time: '01:30 PM', title: 'Music and dance', icon: Music },
-  { time: '03:00 PM', title: 'Bride and groom departure', icon: Car },
+  { time: '10:00 AM', title: 'Arrival of guests', icon: Heart },
+  { time: '10:08 AM', title: 'Poruwa ceremony', icon: Camera },
+  { time: '04:00 PM', title: 'Bride and groom departure', icon: Car },
 ];
 
 export const Timeline: React.FC = () => {

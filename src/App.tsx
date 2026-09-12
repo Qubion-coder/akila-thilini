@@ -20,11 +20,10 @@ import { AdminPage } from './components/AdminPage';
 
 function LandingPage() {
   const [showIntro, setShowIntro] = useState(true);
-  const [showMain, setShowMain] = useState(true);
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const weddingDate = new Date('2027-01-05T08:30:00');
+  const weddingDate = new Date('2026-10-15T10:00:00');
 
   const startMusic = () => {
     if (audioRef.current && !isMusicPlaying) {
@@ -45,7 +44,7 @@ function LandingPage() {
   };
 
   useEffect(() => {
-    if (showIntro) return; // Wait until intro is done
+    if (showIntro) return;
 
     const handleInteraction = () => {
       if (audioRef.current && !isMusicPlaying) {
@@ -69,24 +68,19 @@ function LandingPage() {
     };
   }, [isMusicPlaying, showIntro]);
 
-  const handleVideoComplete = () => {
+  const handleOpenInvitation = () => {
     setShowIntro(false);
-    // Try to start music immediately after video ends
     startMusic();
   };
 
   return (
     <div className="relative min-h-screen font-sans selection:bg-[#A68846] selection:text-[#111111] overflow-x-hidden bg-transparent">
-      {/* Global Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
+      {/* Global Background Image */}
+      <img
+        src="/ChatGPT Image Sep 13, 2026, 12_41_42 AM.png"
+        alt="Background"
         className="fixed top-0 left-0 w-screen h-screen object-cover -z-10"
-      >
-        <source src="/Animation_circles_rotating_samah…_202608061757.mp4" type="video/mp4" />
-      </video>
+      />
 
       <FloatingPetals />
 
@@ -99,13 +93,13 @@ function LandingPage() {
 
       <AnimatePresence mode="wait">
         {showIntro ? (
-          <IntroVideo key="intro" onComplete={handleVideoComplete} />
+          <IntroVideo key="intro" onComplete={handleOpenInvitation} />
         ) : (
           <motion.main
             key="main"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 2, ease: "easeInOut" }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
             className="relative z-10"
           >
             {/* Music Toggle Button */}
@@ -117,21 +111,15 @@ function LandingPage() {
               {isMusicPlaying ? <Volume2 className="w-5 h-5 sm:w-6 sm:h-6" /> : <VolumeX className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
 
-
-
             <HeroContent />
+
+            <NoteFromUs />
 
             <Timeline />
 
             <Countdown targetDate={weddingDate} />
 
             <Celebration />
-
-            <NoteFromUs />
-
-
-
-
 
             <RSVPForm />
 

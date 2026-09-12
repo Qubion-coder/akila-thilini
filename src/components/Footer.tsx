@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
           With Love, Until Then
         </h2>
         <p className="font-sans text-[11px] font-bold tracking-[0.35em] uppercase mb-7 text-gray-900/30">
-          05/01/2027
+          15/10/2026
         </p>
         
         <div>
@@ -42,8 +42,18 @@ export const Footer: React.FC = () => {
             </svg>
           </div>
         </div>
-        
 
+        <p className="text-[#8B6E27] text-xs mt-8 font-sans tracking-wider" style={{ textShadow: "0 0 15px rgba(255,255,255,1), 0 0 8px rgba(255,255,255,0.9)" }}>
+          Want a beautiful wedding website like this? Create yours with{' '}
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="text-[#5C430E] hover:text-[#B8942A] font-bold underline underline-offset-4 decoration-[#8B6E27]/50 transition-colors"
+            href="https://wa.me/94707819074"
+          >
+            invitemint
+          </a>
+        </p>
       </div>
     </footer>
   );

@@ -1,7 +1,13 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useSearchParams } from 'react-router-dom';
 
 export const NoteFromUs: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const prefix = searchParams.get('prefix');
+  const name = searchParams.get('name');
+  const guestName = name ? `${prefix ? `${prefix} ` : ''}${name}` : null;
+
   return (
     <section aria-label="A note from us" id="note" className="relative py-24 sm:py-36 px-6 overflow-hidden bg-transparent text-[#9E7B22]">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(160,160,160,0.35), transparent)" }} aria-hidden="true" />
@@ -16,23 +22,6 @@ export const NoteFromUs: React.FC = () => {
       />
       
       <div className="relative mx-auto max-w-5xl">
-        <motion.div 
-          className="text-center mb-12 sm:mb-14"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="font-serif text-3xl sm:text-4xl mb-3" style={{ color: "#B8942A" }}>A Note From Us</p>
-          <div className="flex items-center justify-center gap-3" aria-hidden="true">
-            <div className="h-px w-12 sm:w-16" style={{ background: "linear-gradient(90deg, transparent, #A0A0A0cc)" }} />
-            <svg width="9" height="9" viewBox="0 0 9 9" fill="none">
-              <polygon points="4.5,0 9,4.5 4.5,9 0,4.5" fill="#A0A0A0" fillOpacity="0.85" />
-            </svg>
-            <div className="h-px w-12 sm:w-16" style={{ background: "linear-gradient(270deg, transparent, #A0A0A0cc)" }} />
-          </div>
-        </motion.div>
-
         <div className="grid items-center gap-12 lg:gap-16 md:grid-cols-12">
           <motion.div 
             className="md:col-span-12 text-center"
@@ -45,16 +34,21 @@ export const NoteFromUs: React.FC = () => {
               <span className="font-display font-bold" style={{ fontSize: "clamp(4rem, 14vw, 7rem)", color: "#B8942A", opacity: 0.7, lineHeight: 1 }}>“</span>
             </div>
             <p className="font-display font-bold italic leading-[1.4] px-2 text-center" style={{ fontSize: "clamp(1.2rem, 3.5vw, 1.8rem)", color: "rgba(158,123,34, 0.9)", marginTop: "-1rem" }}>
-              <span className="block mt-4 mb-4 text-[#B8942A] uppercase tracking-wider font-sans text-sm md:text-base">
-                Mr. Pradeep Pathirana &amp; Mrs. Nalindra Sugunawardhana<br/>
+              <span className="block mt-4 mb-4 text-[#B8942A] uppercase tracking-wider font-sans text-sm md:text-base font-semibold">
+                Mr. &amp; Mrs. K. Shantha<br/>
                 together with<br/>
-                Mr. Kapila Herath &amp; Mrs. Erandi Kuruppu
+                Mr. &amp; Mrs. Abeywickrama
               </span>
               <span className="uppercase tracking-wide font-sans text-xs md:text-sm leading-relaxed block mt-6 mb-6">
-                Request the honour of the presence of to celebrate the wedding of their children
+                Request the honour of your presence of<br/>
+                <span className="font-bold text-[#876A2E] text-sm md:text-base mt-2 inline-block">
+                  {guestName ? guestName : 'Mr. / Mrs. / Miss. / Family'}
+                </span>
+                <br/>
+                <span className="mt-2 block">on the occasion of marriage of their children</span>
               </span>
               <span className="font-serif text-3xl md:text-5xl text-[#B8942A] block my-6">
-                Dasni &amp; Tharaka
+                Akila &amp; Thilini
               </span>
               <span className="uppercase tracking-wide font-sans text-xs md:text-sm leading-relaxed block mt-6 text-[#B8942A]">
                 Join us as we celebrate love, laughter and the beginning of a beautiful journey together
@@ -69,7 +63,7 @@ export const NoteFromUs: React.FC = () => {
                 <div className="h-px w-12 sm:w-16" style={{ background: "linear-gradient(270deg, transparent, #A0A0A0cc)" }} />
               </div>
               <p className="font-serif text-2xl sm:text-3xl" style={{ color: "#B8942A" }}>
-                Dasni &amp; Tharaka
+                Akila &amp; Thilini
               </p>
             </div>
           </motion.div>

@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig, loadEnv, type Plugin} from 'vite';
 
-const SHARE_FAVICON_PATH = '/2026.07.16-20260612T100209Z-3-001/my/RWP01402.jpg';
+const SHARE_FAVICON_PATH = '/og-image.jpg';
 const SHARE_IMAGE_PATH = '/og-image.jpg';
 const SHARE_IMAGE_SOURCE = path.join(
   __dirname,

@@ -35,7 +35,7 @@ export const HeroContent: React.FC = () => {
         transition={{ duration: 1.5, ease: "easeOut" }}
       >
         <h1 className="flex flex-col items-center gap-3">
-          {prefix && name && (
+          {name && (
             <motion.div 
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -44,12 +44,12 @@ export const HeroContent: React.FC = () => {
             >
               <span className="text-[#111111] uppercase tracking-widest text-xs sm:text-sm font-extrabold mb-3 bg-white/60 px-4 py-1 rounded-full backdrop-blur-sm border border-white/50 shadow-sm">We cordially invite</span>
               <span className="text-xl sm:text-3xl md:text-4xl font-serif text-[#91763A] text-center px-4 leading-tight" style={{ textShadow: "0 0 20px rgba(255,255,255,1), 0 0 10px rgba(255,255,255,0.9)" }}>
-                {prefix} {name}
+                {prefix ? `${prefix} ` : ''}{name}
               </span>
             </motion.div>
           )}
           <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-[0.15em] text-[#A68846] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-            DASNI
+            AKILA
           </span>
           <div className="flex items-center gap-3 opacity-90">
             <div className="h-[1px] w-8 sm:w-16 bg-[#A68846]"></div>
@@ -59,7 +59,7 @@ export const HeroContent: React.FC = () => {
             <div className="h-[1px] w-8 sm:w-16 bg-[#A68846]"></div>
           </div>
           <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-[0.15em] text-[#A68846] uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
-            THARAKA
+            THILINI
           </span>
         </h1>
       </motion.div>
