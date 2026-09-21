@@ -3,14 +3,9 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig, loadEnv, type Plugin} from 'vite';
 
-const SHARE_FAVICON_PATH = '/og-image.jpg';
-const SHARE_IMAGE_PATH = '/og-image.jpg';
-const SHARE_IMAGE_SOURCE = path.join(
-  __dirname,
-  'public/2026.07.16-20260612T100209Z-3-001/my/RWP00717.jpg',
-);
-const SHARE_IMAGE_OUTPUT = path.join(__dirname, 'public/og-image.jpg');
-const DEFAULT_SITE_URL = 'https://gimhan-teneeshiya-weddinginvitation.vercel.app';
+const SHARE_FAVICON_PATH = '/ChatGPT Image Aug 6, 2026, 05_51_32 PM.png';
+const SHARE_IMAGE_PATH = '/ChatGPT Image Aug 6, 2026, 05_51_32 PM.png';
+const DEFAULT_SITE_URL = 'https://akila-thilini-weddinginvitation.vercel.app';
 
 function getSiteUrl(env: Record<string, string>): string {
   const configured = env.VITE_SITE_URL?.trim();
@@ -19,27 +14,11 @@ function getSiteUrl(env: Record<string, string>): string {
   return DEFAULT_SITE_URL;
 }
 
-async function ensureOgImage(): Promise<void> {
-  const sharp = (await import('sharp')).default;
-  await sharp(SHARE_IMAGE_SOURCE)
-    .jpeg({quality: 85, progressive: true})
-    .toFile(SHARE_IMAGE_OUTPUT);
-}
-
-function ogImagePlugin(): Plugin {
-  return {
-    name: 'og-image',
-    async buildStart() {
-      await ensureOgImage();
-    },
-    configureServer() {
-      void ensureOgImage();
-    },
-  };
-}
-
 function siteMetaPlugin(siteUrl: string): Plugin {
-  const shareImageUrl = `${siteUrl}${SHARE_IMAGE_PATH}`;
+  // Encode the filename so it is a valid URL
+  const encodedImagePath = encodeURI(SHARE_IMAGE_PATH);
+  const shareImageUrl = `${siteUrl}${encodedImagePath}`;
+  const encodedFaviconPath = encodeURI(SHARE_FAVICON_PATH);
 
   return {
     name: 'site-meta',
@@ -47,8 +26,8 @@ function siteMetaPlugin(siteUrl: string): Plugin {
       return html
         .replaceAll('%SITE_URL%', siteUrl)
         .replaceAll('%SHARE_IMAGE_URL%', shareImageUrl)
-        .replaceAll('%SHARE_IMAGE_PATH%', SHARE_IMAGE_PATH)
-        .replaceAll('%SHARE_FAVICON_PATH%', SHARE_FAVICON_PATH);
+        .replaceAll('%SHARE_IMAGE_PATH%', encodedImagePath)
+        .replaceAll('%SHARE_FAVICON_PATH%', encodedFaviconPath);
     },
   };
 }
@@ -58,7 +37,7 @@ export default defineConfig(({mode}) => {
   const siteUrl = getSiteUrl(env);
 
   return {
-    plugins: [ogImagePlugin(), react(), tailwindcss(), siteMetaPlugin(siteUrl)],
+    plugins: [react(), tailwindcss(), siteMetaPlugin(siteUrl)],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },

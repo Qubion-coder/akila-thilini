@@ -3,20 +3,18 @@ import React, { useState } from 'react';
 const prefixes = [
   "Mr.",
   "Mrs.",
+  "Miss",
   "Mr. & Mrs.",
-  "Ms.",
-  "Dr.",
-  "Dr. & Mrs.",
-  "Dr. & Mr.",
-  "Prof.",
-  "Rev."
+  "Family",
+  "Dear"
 ];
 
 export const AdminPage: React.FC = () => {
-  const [prefix, setPrefix] = useState(prefixes[2]); // Default to Mr. & Mrs.
+  const [prefix, setPrefix] = useState(prefixes[0]);
   const [name, setName] = useState('');
   const [generatedLink, setGeneratedLink] = useState('');
-  const [copied, setCopied] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
+  const [copiedMessage, setCopiedMessage] = useState(false);
 
   const handleGenerate = () => {
     if (!name.trim()) return;
@@ -24,17 +22,44 @@ export const AdminPage: React.FC = () => {
     url.searchParams.set('prefix', prefix);
     url.searchParams.set('name', name.trim());
     setGeneratedLink(url.toString());
-    setCopied(false);
+    setCopiedLink(false);
+    setCopiedMessage(false);
   };
 
-  const handleCopy = async () => {
+  const getMessageTemplate = () => {
+    return `Dear ${prefix} ${name.trim()} ❤️
+
+With joyful hearts, we warmly invite you to celebrate one of the most special days of our lives as we begin our journey together.
+
+Please view our wedding invitation and all the event details through the link below 🌐:
+
+${generatedLink}
+
+Your presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.
+
+With love,
+❤️ Akila & Thilini`;
+  };
+
+  const handleCopyLink = async () => {
     if (!generatedLink) return;
     try {
       await navigator.clipboard.writeText(generatedLink);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2000);
     } catch (err) {
-      console.error('Failed to copy', err);
+      console.error('Failed to copy link', err);
+    }
+  };
+
+  const handleCopyMessage = async () => {
+    if (!generatedLink) return;
+    try {
+      await navigator.clipboard.writeText(getMessageTemplate());
+      setCopiedMessage(true);
+      setTimeout(() => setCopiedMessage(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy message', err);
     }
   };
 
@@ -61,7 +86,7 @@ export const AdminPage: React.FC = () => {
               type="text" 
               value={name} 
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. John Doe"
+              placeholder="e.g. Sanjaya"
               className="w-full bg-black/50 border border-[#A68846]/50 text-[#A68846] rounded-lg p-3 focus:outline-none focus:border-[#A68846] transition-colors placeholder:text-[#A68846]/30"
             />
           </div>
@@ -75,14 +100,29 @@ export const AdminPage: React.FC = () => {
           </button>
 
           {generatedLink && (
-            <div className="mt-8 p-5 bg-black/60 border border-[#A68846]/30 rounded-lg break-all text-[#A0A0A0] text-sm">
-              <p className="mb-5 leading-relaxed selection:bg-[#A68846] selection:text-white">{generatedLink}</p>
-              <button 
-                onClick={handleCopy}
-                className="w-full py-2 border border-[#A68846] text-[#A68846] font-bold uppercase tracking-wider text-xs rounded-lg hover:bg-[#A68846]/10 transition-colors flex items-center justify-center gap-2"
-              >
-                {copied ? '✓ Copied!' : 'Copy Link'}
-              </button>
+            <div className="mt-8 p-5 bg-black/60 border border-[#A68846]/30 rounded-lg text-[#A0A0A0] text-sm flex flex-col gap-4">
+              <div className="break-all selection:bg-[#A68846] selection:text-white">
+                <p className="font-semibold text-[#A68846] mb-1">Generated Link:</p>
+                <p>{generatedLink}</p>
+              </div>
+              <div className="break-words whitespace-pre-wrap bg-black/40 p-3 rounded border border-white/5 text-xs leading-relaxed">
+                {getMessageTemplate()}
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                <button 
+                  onClick={handleCopyLink}
+                  className="flex-1 py-2 border border-[#A68846] text-[#A68846] font-bold uppercase tracking-wider text-xs rounded-lg hover:bg-[#A68846]/10 transition-colors flex items-center justify-center gap-2"
+                >
+                  {copiedLink ? '✓ Copied!' : 'Copy Link Only'}
+                </button>
+                <button 
+                  onClick={handleCopyMessage}
+                  className="flex-1 py-2 bg-[#A68846] text-[#111111] font-bold uppercase tracking-wider text-xs rounded-lg hover:bg-[#91763A] transition-colors flex items-center justify-center gap-2"
+                >
+                  {copiedMessage ? '✓ Copied!' : 'Copy Full Message'}
+                </button>
+              </div>
             </div>
           )}
         </div>

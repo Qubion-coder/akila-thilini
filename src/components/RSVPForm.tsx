@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { submitToGoogleSheet } from '../googleSheets';
 
 export const RSVPForm: React.FC = () => {
-  const [name, setName] = useState('');
+  const [searchParams] = useSearchParams();
+  const urlPrefix = searchParams.get('prefix');
+  const urlName = searchParams.get('name');
+  const initialName = urlName ? `${urlPrefix ? `${urlPrefix} ` : ''}${urlName}` : '';
+
+  const [name, setName] = useState(initialName);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);

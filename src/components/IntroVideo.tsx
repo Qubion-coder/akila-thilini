@@ -26,38 +26,29 @@ export const IntroVideo: React.FC<ViewInvitationProps> = ({ onComplete }) => {
         />
       </div>
       <div className="absolute inset-0 pointer-events-none opacity-20" style={{ background: "radial-gradient(circle at center, #A68846 0%, transparent 70%)" }} />
-      <div className="relative z-10 text-center flex flex-col items-center px-4">
-        <h1 className="flex flex-col items-center gap-2 sm:gap-3 mb-8 sm:mb-12">
-          <span className="text-xs sm:text-sm md:text-base tracking-[0.3em] sm:tracking-[0.4em] uppercase text-[#111111] mb-2 sm:mb-4 font-semibold">
+      <div className="relative z-10 text-center flex flex-col items-center justify-between sm:justify-center w-full h-[100dvh] py-24 sm:py-0 px-4">
+        <h1 className="flex flex-col items-center gap-2 sm:gap-3 mt-4 sm:mt-0 mb-8 sm:mb-12">
+          <span className="text-xs sm:text-sm md:text-base tracking-[0.3em] sm:tracking-[0.4em] uppercase text-white mb-2 sm:mb-4 font-semibold">
             The Wedding Invitation
           </span>
-          {name && (
-            <div className="mb-4 flex flex-col items-center">
-              <span className="text-[#111111] uppercase tracking-widest text-[11px] sm:text-xs font-extrabold mb-1 bg-white/60 px-4 py-1 rounded-full backdrop-blur-sm border border-white/50 shadow-sm">
-                Cordially Invited
-              </span>
-              <span className="text-xl sm:text-2xl md:text-3xl font-serif text-[#91763A] text-center px-4 leading-tight" style={{ textShadow: "0 0 15px rgba(255,255,255,1)" }}>
-                {prefix ? `${prefix} ` : ''}{name}
-              </span>
-            </div>
-          )}
-          <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-[0.15em] text-[#111111] uppercase drop-shadow-[0_2px_10px_rgba(255,255,255,0.4)]">
+
+          <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-[0.15em] text-white uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
             AKILA
           </span>
           <div className="flex items-center gap-3 opacity-90">
-            <div className="h-[1px] w-8 sm:w-16 bg-[#111111]/60"></div>
-            <span className="text-3xl sm:text-4xl font-display italic text-[#111111] lowercase tracking-widest px-2 drop-shadow-[0_2px_10px_rgba(255,255,255,0.4)]">
+            <div className="h-[1px] w-8 sm:w-16 bg-white/60"></div>
+            <span className="text-3xl sm:text-4xl font-display italic text-white lowercase tracking-widest px-2 drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
               and
             </span>
-            <div className="h-[1px] w-8 sm:w-16 bg-[#111111]/60"></div>
+            <div className="h-[1px] w-8 sm:w-16 bg-white/60"></div>
           </div>
-          <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-[0.15em] text-[#111111] uppercase drop-shadow-[0_2px_10px_rgba(255,255,255,0.4)]">
+          <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif tracking-[0.15em] text-white uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.4)]">
             THILINI
           </span>
         </h1>
         <button
           onClick={onComplete}
-          className="group relative px-10 sm:px-12 py-4 sm:py-5 bg-white/30 backdrop-blur-sm border border-[#111111]/50 text-[#111111] rounded-full uppercase tracking-[0.25em] text-xs sm:text-sm overflow-hidden hover:scale-105 transition-all duration-500 hover:border-[#111111] hover:bg-white/50 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_25px_rgba(0,0,0,0.2)] cursor-pointer"
+          className="mb-8 sm:mb-0 group relative px-10 sm:px-12 py-4 sm:py-5 bg-white/30 backdrop-blur-sm border border-[#111111]/50 text-[#111111] rounded-full uppercase tracking-[0.25em] text-xs sm:text-sm overflow-hidden hover:scale-105 transition-all duration-500 hover:border-[#111111] hover:bg-white/50 shadow-[0_4px_20px_rgba(0,0,0,0.1)] hover:shadow-[0_4px_25px_rgba(0,0,0,0.2)] cursor-pointer"
         >
           <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#111111]/10 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
           <span className="relative z-10 font-bold">View Invitation</span>
